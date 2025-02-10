@@ -13,4 +13,11 @@ defmodule LeaveApp.Repo.Migrations.CreateLeaveApplications do
       timestamps(type: :utc_datetime)
     end
   end
+  # Add a new column to the leave_applications table to store the status
+  def change do
+    alter table(:leave_applications) do
+      add :status, :string, default: "pending"
+    end
+  end
+
 end

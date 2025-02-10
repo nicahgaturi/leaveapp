@@ -25,6 +25,8 @@ defmodule LeaveAppWeb.Router do
     live "/login", LoginLive
     live "/home", UsersLive
     live "/leave_applications", LeaveApplicationLive, :index
+    live "/employees", EmployeeLive, :index
+
 
   end
 

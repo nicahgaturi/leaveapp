@@ -57,7 +57,7 @@ defmodule LeaveAppWeb.LoginLive do
   def handle_event("login", %{"user" => %{"email" => email, "password" => password}}, socket) do
     case Accounts.authenticate_user(email, password) do
       {:ok, user} ->
-        {:noreply, socket |> assign(:current_user, user) |> redirect(to: "/")}
+        {:noreply, socket |> assign(:current_user, user) |> redirect(to: "/employees")}
 
       {:error, _reason} ->
         changeset =

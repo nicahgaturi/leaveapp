@@ -46,7 +46,7 @@ defmodule LeaveAppWeb.LeaveApplicationLive do
         <div>
           <button type="submit"
                   class="w-full bg-teal-600 text-white py-2 rounded-md hover:bg-teal-700 focus:ring-4 focus:ring-teal-300"
-                  <%= if @form_submitted, do: "disabled", else: "" %>>
+                  <%= if @form_submitted, do: "disabled" %>>
             Submit Leave Application
           </button>
         </div>
@@ -71,7 +71,8 @@ defmodule LeaveAppWeb.LeaveApplicationLive do
       {:ok, _leave_application} ->
         {:noreply, socket
           |> put_flash(:info, "Leave application submitted successfully.")
-          |> assign(:form_submitted, true)}  # Disable the button after submission
+          |> assign(:form_submitted, true)
+          |> push_redirect(to: "/employees")}  # Redirect to the employees page
 
       {:error, changeset} ->
         {:noreply, socket
